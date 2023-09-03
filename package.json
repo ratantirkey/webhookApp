@@ -1,0 +1,24 @@
+{
+  "name": "WebhookApp",
+  "author": "Ratan Tirkey",
+  "email": "ratan.tirkey@gmail.com",
+  "private": "true",
+  "license": "NEO",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.1",
+    "bootstrap-icons": "^1.10.5",
+    "esbuild": "^0.19.2",
+    "jquery": "^3.7.1",
+    "jsdom": "^22.1.0",
+    "sass": "^1.66.1",
+    "toastify-js": "^1.12.0"
+  }
+}

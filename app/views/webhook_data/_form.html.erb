@@ -1,0 +1,26 @@
+<%= form_with(model: webhook_data, url: url_path) do |form| %>
+  <% if webhook_data.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(webhook_data.errors.count, "error") %> prohibited this webhook from being saved:</h2>
+
+      <ul>
+        <% webhook_data.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :data, class: 'form-label' %>
+    <%= form.text_field :data, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

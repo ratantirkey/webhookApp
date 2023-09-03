@@ -1,0 +1,5 @@
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <turbo-stream action="toast" message="<%=msg %>" toastBackground="<%=toast_background_filter(name.to_s) %>"></turbo-stream>
+  <% end %>
+<% end %>
