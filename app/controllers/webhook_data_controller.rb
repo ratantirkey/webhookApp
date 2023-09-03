@@ -3,7 +3,7 @@ class WebhookDataController < ApplicationController
 
   def index
     @webhookdata_new = WebhookData.new
-
+    @webhookdata_list = WebhookData.all
   end
 
   def create
@@ -11,10 +11,16 @@ class WebhookDataController < ApplicationController
 
     if data.save
       data.notify_third_parties(request)
-      render json: { message: 'Data created successfully' }, status: :created
+      # render json: { message: 'Data created successfully' }, status: :created
     else
-      render json: { errors: data.errors.full_messages }, status: :unprocessable_entity
+      # render json: { errors: data.errors.full_messages }, status: :unprocessable_entity
     end
+    redirect_to webhook_data_path
+  end
+
+  def edit
+    @webhookdata = WebhookData.find params[:id]
+    @webhookdata_list = WebhookData.all
   end
 
   def update
@@ -22,10 +28,11 @@ class WebhookDataController < ApplicationController
 
     if data.update(webhook_data_params)
       data.notify_third_parties(request)
-      render json: { message: 'Data updated successfully' }
+      # render json: { message: 'Data updated successfully' }
     else
-      render json: { errors: data.errors.full_messages }, status: :unprocessable_entity
+      # render json: { errors: data.errors.full_messages }, status: :unprocessable_entity
     end
+    redirect_to webhook_data_path
   end
 
   private

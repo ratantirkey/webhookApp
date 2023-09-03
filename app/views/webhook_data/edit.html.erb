@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <%= render partial: "webhook_data/form", locals: { webhook_data: @webhookdata_new, url_path: webhook_data_path } %>
+    <%= render partial: "webhook_data/form", locals: { webhook_data: @webhookdata, url_path: webhook_datum_path } %>
   </div>
   <div class="col-md-9">
     <h2>Webhook Data List</h2>
@@ -13,7 +13,7 @@
       </tr>
       </thead>
       <tbody>
-        <%= render partial: "webhook_data/list", collection: @webhookdata_list, as: :webhook_data %>
+      <%= render partial: "webhook_data/list", collection: @webhookdata_list, as: :webhook_data %>
       </tbody>
     </table>
   </div>
